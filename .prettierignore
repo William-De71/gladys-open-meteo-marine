@@ -1,0 +1,12 @@
+node_modules/
+package-lock.json
+/data/
+*.log
+
+# Forum post drafts: pasted by hand on the forum, never committed.
+.github/forum-*.md
+
+
+# Recorded answers of Open-Meteo: kept byte for byte.
+test/fixtures/*.marine.json
+test/fixtures/*.wind.json

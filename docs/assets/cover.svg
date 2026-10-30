@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="534" viewBox="0 0 800 534">
+  <!-- Cover of the Open-Meteo Marine integration for Gladys Assistant
+       (illustration: no logo of Open-Meteo). A swell rolling in under a
+       breezy sky, a buoy, a sail and the three readings of the integration
+       (waves, wind, water). Built into cover.jpg by scripts/build-cover.sh. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f2a47"/>
+      <stop offset="0.6" stop-color="#2a6f9e"/>
+      <stop offset="1" stop-color="#8fc7df"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c6e93"/>
+      <stop offset="1" stop-color="#0b3352"/>
+    </linearGradient>
+    <linearGradient id="sea2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b8bb3"/>
+      <stop offset="1" stop-color="#0e4566"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe7a3" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#ffe7a3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="534" fill="url(#sky)"/>
+  <circle cx="640" cy="120" r="120" fill="url(#sun)"/>
+  <circle cx="640" cy="120" r="34" fill="#fff2c4"/>
+  <!-- wind streaks -->
+  <g stroke="#e6f3fb" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.8" transform="translate(0 55)">
+    <path d="M70 120 H250 c30 0 30 -40 0 -40"/>
+    <path d="M110 160 H330 c34 0 34 44 0 44"/>
+    <path d="M60 200 H200"/>
+  </g>
+  <!-- far sea -->
+  <path d="M0 300 Q100 280 200 300 T400 300 T600 300 T800 300 V534 H0 Z" fill="url(#sea2)"/>
+  <!-- sail -->
+  <g transform="translate(520 210)">
+    <path d="M0 90 L60 90 L50 102 L8 102 Z" fill="#f4f1ea"/>
+    <path d="M30 0 L30 88 L58 88 Z" fill="#ffffff"/>
+    <path d="M28 10 L28 88 L6 88 Z" fill="#e8662d"/>
+  </g>
+  <!-- buoy -->
+  <g transform="translate(250 300)">
+    <path d="M-16 40 L16 40 L10 -4 L-10 -4 Z" fill="#d9342b"/>
+    <rect x="-10" y="10" width="20" height="9" fill="#ffffff"/>
+    <rect x="-3" y="-30" width="6" height="28" fill="#3a3a3a"/>
+    <circle cx="0" cy="-34" r="7" fill="#ffd34d"/>
+  </g>
+  <!-- swell -->
+  <path d="M0 360 C80 320 160 320 240 360 S400 400 480 360 S640 320 720 360 S800 380 800 380 V534 H0 Z" fill="url(#sea)"/>
+  <path d="M0 360 C80 320 160 320 240 360 S400 400 480 360 S640 320 720 360 S800 380 800 380" fill="none" stroke="#bfe6f5" stroke-width="5" opacity="0.8"/>
+  <path d="M0 430 C100 400 200 400 300 430 S500 460 600 430 S760 400 800 420" fill="none" stroke="#7fc3df" stroke-width="3" opacity="0.6"/>
+  <!-- readings -->
+  <g font-family="DejaVu Sans, Arial, sans-serif" fill="#ffffff">
+    <text x="40" y="70" font-size="52" font-weight="bold">Open-Meteo Marine</text>
+    <text x="42" y="104" font-size="22" opacity="0.9">for Gladys Assistant</text>
+    <g transform="translate(40 455)">
+      <rect width="225" height="56" rx="12" fill="#0b2740" opacity="0.75"/>
+      <text x="16" y="37" font-size="24" font-weight="bold">≈ 1.2 m · 10 s</text>
+    </g>
+    <g transform="translate(290 455)">
+      <rect width="225" height="56" rx="12" fill="#0b2740" opacity="0.75"/>
+      <text x="16" y="37" font-size="24" font-weight="bold">➶ 12 kn · F4</text>
+    </g>
+    <g transform="translate(540 455)">
+      <rect width="220" height="56" rx="12" fill="#0b2740" opacity="0.75"/>
+      <text x="16" y="37" font-size="24" font-weight="bold">🌡 13.1 °C</text>
+    </g>
+  </g>
+</svg>

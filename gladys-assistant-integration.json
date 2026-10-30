@@ -1,0 +1,1823 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Open-Meteo Marine",
+  "description": {
+    "en": "Marine weather by Open-Meteo: waves, swell, water temperature, wind and sea state of your spots.",
+    "fr": "Météo marine Open-Meteo : vagues, houle, température de l’eau, vent et état de la mer de vos spots.",
+    "de": "Seewetter von Open-Meteo: Wellen, Dünung, Wassertemperatur, Wind und Seegang Ihrer Spots.",
+    "es": "Tiempo marino de Open-Meteo: olas, mar de fondo, temperatura del agua, viento y estado del mar."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-open-meteo-marine:0.1.0",
+  "gladys_version": ">=5.3.0",
+  "categories": ["environment", "leisure"],
+  "keywords": [
+    "météo marine",
+    "houle",
+    "surf",
+    "swell",
+    "waves",
+    "sea temperature",
+    "voile",
+    "Beaufort",
+    "kitesurf",
+    "Seewetter"
+  ],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-open-meteo-marine/main/cover.jpg",
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Open-Meteo Marine",
+        "fr": "Open-Meteo Marine",
+        "de": "Open-Meteo Marine",
+        "es": "Open-Meteo Marine"
+      },
+      "description": {
+        "en": "Marine weather of Open-Meteo for your spots: waves, swell, wind sea, water temperature, current, sea level with the tides, wind, Beaufort force and Douglas sea state, now and for 7 days. No account and no key: the free API of Open-Meteo is for non-commercial use, and the integration reads each spot every 15 or 30 minutes. The coordinates of the spots are sent to Open-Meteo. Weather data by Open-Meteo.com, under CC BY 4.0. These are model forecasts, not fit for the safety of navigation: before going to sea, read the official marine forecast of your weather service.",
+        "fr": "Météo marine d’Open-Meteo pour vos spots : vagues, houle, mer du vent, température de l’eau, courant, niveau de la mer avec la marée, vent, force Beaufort et état de la mer (Douglas), maintenant et sur 7 jours. Ni compte ni clé : l’API gratuite d’Open-Meteo est réservée à un usage non commercial, et l’intégration lit chaque spot toutes les 15 ou 30 minutes. Les coordonnées des spots sont envoyées à Open-Meteo. Données météo par Open-Meteo.com, sous licence CC BY 4.0. Ce sont des prévisions de modèle, inadaptées à la sécurité de la navigation : avant de sortir, consultez le bulletin météo marine officiel (Météo-France).",
+        "de": "Seewetter von Open-Meteo für Ihre Spots: Wellen, Dünung, Windsee, Wassertemperatur, Strömung, Meeresspiegel mit Gezeiten, Wind, Beaufort-Stärke und Seegang (Douglas), jetzt und für 7 Tage. Weder Konto noch Schlüssel: Die kostenlose API von Open-Meteo ist für nicht kommerzielle Nutzung, und die Integration liest jeden Spot alle 15 oder 30 Minuten. Die Koordinaten der Spots werden an Open-Meteo gesendet. Wetterdaten von Open-Meteo.com, unter CC BY 4.0. Es sind Modellvorhersagen, nicht für die Sicherheit der Navigation geeignet: Lesen Sie vor dem Auslaufen den amtlichen Seewetterbericht (DWD).",
+        "es": "Tiempo marino de Open-Meteo para sus spots: olas, mar de fondo, mar de viento, temperatura del agua, corriente, nivel del mar con la marea, viento, fuerza Beaufort y estado del mar (Douglas), ahora y para 7 días. Sin cuenta ni clave: la API gratuita de Open-Meteo es para uso no comercial, y la integración lee cada spot cada 15 o 30 minutos. Las coordenadas de los spots se envían a Open-Meteo. Datos meteorológicos de Open-Meteo.com, bajo CC BY 4.0. Son previsiones de modelo, no aptas para la seguridad de la navegación: antes de salir, consulte el boletín marino oficial (AEMET)."
+      },
+      "links": [
+        {
+          "url": "https://github.com/William-De71/gladys-open-meteo-marine",
+          "label": {
+            "en": "Documentation and support",
+            "fr": "Documentation et support",
+            "de": "Dokumentation und Support",
+            "es": "Documentación y soporte"
+          }
+        },
+        {
+          "url": "https://open-meteo.com/",
+          "label": {
+            "en": "Weather data by Open-Meteo.com",
+            "fr": "Données météo par Open-Meteo.com",
+            "de": "Wetterdaten von Open-Meteo.com",
+            "es": "Datos meteorológicos de Open-Meteo.com"
+          }
+        },
+        {
+          "url": "https://creativecommons.org/licenses/by/4.0/",
+          "label": {
+            "en": "Licence CC BY 4.0",
+            "fr": "Licence CC BY 4.0",
+            "de": "Lizenz CC BY 4.0",
+            "es": "Licencia CC BY 4.0"
+          }
+        }
+      ]
+    },
+    {
+      "key": "spots",
+      "type": "section",
+      "label": {
+        "en": "Spots",
+        "fr": "Spots",
+        "de": "Spots",
+        "es": "Spots"
+      },
+      "description": {
+        "en": "Type up to five spots: a name and its coordinates as “latitude, longitude” in decimal degrees (47.45, -3.20). Place the point AT SEA, a few km off the coast where the waves come in: on land Open-Meteo has no marine data and the spot is refused. Find the coordinates with a right-click on the sea in Google Maps, or on OpenStreetMap. Each spot becomes a device in the Discover tab; renaming a spot keeps its device, moving it to other waters makes a new one.",
+        "fr": "Saisissez jusqu’à cinq spots : un nom et ses coordonnées en « latitude, longitude » en degrés décimaux (47.45, -3.20). Placez le point EN MER, à quelques km de la côte, là où arrivent les vagues : sur terre, Open-Meteo n’a pas de données marines et le spot est refusé. Trouvez les coordonnées d’un clic droit sur la mer dans Google Maps ou sur OpenStreetMap. Chaque spot devient un appareil dans l’onglet Découverte ; renommer un spot garde son appareil, le déplacer vers d’autres eaux en crée un nouveau.",
+        "de": "Geben Sie bis zu fünf Spots ein: einen Namen und die Koordinaten als „Breite, Länge“ in Dezimalgrad (47.45, -3.20). Setzen Sie den Punkt AUFS MEER, einige km vor die Küste, wo die Wellen ankommen: An Land hat Open-Meteo keine Meeresdaten und der Spot wird abgelehnt. Die Koordinaten finden Sie per Rechtsklick auf das Meer in Google Maps oder auf OpenStreetMap. Jeder Spot wird zu einem Gerät im Tab Entdecken; Umbenennen behält das Gerät, ein Verschieben in andere Gewässer erzeugt ein neues.",
+        "es": "Escriba hasta cinco spots: un nombre y sus coordenadas como «latitud, longitud» en grados decimales (47.45, -3.20). Coloque el punto EN EL MAR, a unos km de la costa, donde llegan las olas: en tierra Open-Meteo no tiene datos marinos y el spot se rechaza. Encuentre las coordenadas con un clic derecho sobre el mar en Google Maps o en OpenStreetMap. Cada spot se convierte en un dispositivo en la pestaña Descubrir; cambiar el nombre conserva el dispositivo, moverlo a otras aguas crea uno nuevo."
+      }
+    },
+    {
+      "key": "spot_1_name",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 1: name",
+        "fr": "Spot 1 : nom",
+        "de": "Spot 1: Name",
+        "es": "Spot 1: nombre"
+      },
+      "placeholder": {
+        "en": "Quiberon",
+        "fr": "Quiberon",
+        "de": "Sylt",
+        "es": "Tarifa"
+      }
+    },
+    {
+      "key": "spot_1_coordinates",
+      "type": "string",
+      "required": true,
+      "label": {
+        "en": "Spot 1: latitude, longitude",
+        "fr": "Spot 1 : latitude, longitude",
+        "de": "Spot 1: Breite, Länge",
+        "es": "Spot 1: latitud, longitud"
+      },
+      "placeholder": {
+        "en": "47.45, -3.20",
+        "fr": "47.45, -3.20",
+        "de": "54.90, 8.25",
+        "es": "36.00, -5.62"
+      },
+      "description": {
+        "en": "At sea, a few km off the coast.",
+        "fr": "En mer, à quelques km de la côte.",
+        "de": "Auf dem Meer, einige km vor der Küste.",
+        "es": "En el mar, a unos km de la costa."
+      }
+    },
+    {
+      "key": "spot_2_name",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 2: name",
+        "fr": "Spot 2 : nom",
+        "de": "Spot 2: Name",
+        "es": "Spot 2: nombre"
+      },
+      "placeholder": {
+        "en": "Optional",
+        "fr": "Facultatif",
+        "de": "Optional",
+        "es": "Opcional"
+      }
+    },
+    {
+      "key": "spot_2_coordinates",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 2: latitude, longitude",
+        "fr": "Spot 2 : latitude, longitude",
+        "de": "Spot 2: Breite, Länge",
+        "es": "Spot 2: latitud, longitud"
+      },
+      "placeholder": {
+        "en": "47.45, -3.20",
+        "fr": "47.45, -3.20",
+        "de": "54.90, 8.25",
+        "es": "36.00, -5.62"
+      }
+    },
+    {
+      "key": "spot_3_name",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 3: name",
+        "fr": "Spot 3 : nom",
+        "de": "Spot 3: Name",
+        "es": "Spot 3: nombre"
+      },
+      "placeholder": {
+        "en": "Optional",
+        "fr": "Facultatif",
+        "de": "Optional",
+        "es": "Opcional"
+      }
+    },
+    {
+      "key": "spot_3_coordinates",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 3: latitude, longitude",
+        "fr": "Spot 3 : latitude, longitude",
+        "de": "Spot 3: Breite, Länge",
+        "es": "Spot 3: latitud, longitud"
+      },
+      "placeholder": {
+        "en": "47.45, -3.20",
+        "fr": "47.45, -3.20",
+        "de": "54.90, 8.25",
+        "es": "36.00, -5.62"
+      }
+    },
+    {
+      "key": "spot_4_name",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 4: name",
+        "fr": "Spot 4 : nom",
+        "de": "Spot 4: Name",
+        "es": "Spot 4: nombre"
+      },
+      "placeholder": {
+        "en": "Optional",
+        "fr": "Facultatif",
+        "de": "Optional",
+        "es": "Opcional"
+      }
+    },
+    {
+      "key": "spot_4_coordinates",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 4: latitude, longitude",
+        "fr": "Spot 4 : latitude, longitude",
+        "de": "Spot 4: Breite, Länge",
+        "es": "Spot 4: latitud, longitud"
+      },
+      "placeholder": {
+        "en": "47.45, -3.20",
+        "fr": "47.45, -3.20",
+        "de": "54.90, 8.25",
+        "es": "36.00, -5.62"
+      }
+    },
+    {
+      "key": "spot_5_name",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 5: name",
+        "fr": "Spot 5 : nom",
+        "de": "Spot 5: Name",
+        "es": "Spot 5: nombre"
+      },
+      "placeholder": {
+        "en": "Optional",
+        "fr": "Facultatif",
+        "de": "Optional",
+        "es": "Opcional"
+      }
+    },
+    {
+      "key": "spot_5_coordinates",
+      "type": "string",
+      "required": false,
+      "label": {
+        "en": "Spot 5: latitude, longitude",
+        "fr": "Spot 5 : latitude, longitude",
+        "de": "Spot 5: Breite, Länge",
+        "es": "Spot 5: latitud, longitud"
+      },
+      "placeholder": {
+        "en": "47.45, -3.20",
+        "fr": "47.45, -3.20",
+        "de": "54.90, 8.25",
+        "es": "36.00, -5.62"
+      }
+    },
+    {
+      "key": "options",
+      "type": "section",
+      "label": {
+        "en": "Options",
+        "fr": "Options",
+        "de": "Optionen",
+        "es": "Opciones"
+      }
+    },
+    {
+      "key": "interval",
+      "type": "select",
+      "required": false,
+      "default": "30",
+      "label": {
+        "en": "Reading interval",
+        "fr": "Intervalle de lecture",
+        "de": "Abfrageintervall",
+        "es": "Intervalo de lectura"
+      },
+      "description": {
+        "en": "Two requests per spot at each reading. The models are updated a few times a day: 30 minutes is plenty.",
+        "fr": "Deux requêtes par spot à chaque lecture. Les modèles sont mis à jour quelques fois par jour : 30 minutes suffisent largement.",
+        "de": "Zwei Anfragen pro Spot bei jeder Abfrage. Die Modelle werden einige Male am Tag aktualisiert: 30 Minuten reichen völlig.",
+        "es": "Dos solicitudes por spot en cada lectura. Los modelos se actualizan unas pocas veces al día: 30 minutos bastan."
+      },
+      "options": [
+        {
+          "value": "15",
+          "label": {
+            "en": "15 minutes",
+            "fr": "15 minutes",
+            "de": "15 Minuten",
+            "es": "15 minutos"
+          }
+        },
+        {
+          "value": "30",
+          "label": {
+            "en": "30 minutes",
+            "fr": "30 minutes",
+            "de": "30 Minuten",
+            "es": "30 minutos"
+          }
+        }
+      ]
+    },
+    {
+      "key": "wind_unit",
+      "type": "select",
+      "required": false,
+      "default": "kn",
+      "label": {
+        "en": "Wind unit",
+        "fr": "Unité du vent",
+        "de": "Windeinheit",
+        "es": "Unidad del viento"
+      },
+      "description": {
+        "en": "In the widgets and the scene texts. The devices stay in km/h, the wind unit of Gladys.",
+        "fr": "Dans les widgets et les textes des scènes. Les appareils restent en km/h, l’unité de vent de Gladys.",
+        "de": "In den Widgets und Szenentexten. Die Geräte bleiben in km/h, der Windeinheit von Gladys.",
+        "es": "En los widgets y los textos de escenas. Los dispositivos siguen en km/h, la unidad de viento de Gladys."
+      },
+      "options": [
+        {
+          "value": "kn",
+          "label": {
+            "en": "Knots (kn)",
+            "fr": "Nœuds (nd)",
+            "de": "Knoten (kn)",
+            "es": "Nudos (kn)"
+          }
+        },
+        {
+          "value": "kmh",
+          "label": {
+            "en": "km/h",
+            "fr": "km/h",
+            "de": "km/h",
+            "es": "km/h"
+          }
+        },
+        {
+          "value": "ms",
+          "label": {
+            "en": "m/s",
+            "fr": "m/s",
+            "de": "m/s",
+            "es": "m/s"
+          }
+        }
+      ]
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "required": false,
+      "default": "auto",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Language of the device names and of the scene texts. Automatic: the language of your dashboard.",
+        "fr": "Langue des noms d’appareils et des textes des scènes. Automatique : la langue de votre tableau de bord.",
+        "de": "Sprache der Gerätenamen und der Szenentexte. Automatisch: die Sprache Ihres Dashboards.",
+        "es": "Idioma de los nombres de dispositivos y de los textos de escenas. Automático: el idioma de su panel."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "English",
+            "de": "English",
+            "es": "English"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "Français",
+            "fr": "Français",
+            "de": "Français",
+            "es": "Français"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "Deutsch",
+            "fr": "Deutsch",
+            "de": "Deutsch",
+            "es": "Deutsch"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Español",
+            "fr": "Español",
+            "de": "Español",
+            "es": "Español"
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "key": "refresh",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Read now",
+        "fr": "Lire maintenant",
+        "de": "Jetzt lesen",
+        "es": "Leer ahora"
+      },
+      "description": {
+        "en": "Reads Open-Meteo now for every spot, a spot refused as inland included, instead of waiting for the next reading.",
+        "fr": "Lit tout de suite Open-Meteo pour chaque spot, y compris un spot refusé car à terre, sans attendre la prochaine lecture.",
+        "de": "Liest Open-Meteo sofort für jeden Spot, auch einen als Landpunkt abgelehnten, ohne auf die nächste Abfrage zu warten.",
+        "es": "Lee ahora Open-Meteo para cada spot, incluido uno rechazado por estar en tierra, sin esperar a la próxima lectura."
+      }
+    },
+    {
+      "key": "diagnostic",
+      "timeout_seconds": 10,
+      "label": {
+        "en": "Diagnostic",
+        "fr": "Diagnostic",
+        "de": "Diagnose",
+        "es": "Diagnóstico"
+      },
+      "description": {
+        "en": "Writes to the Logs tab the spots, the model grid cells, the schedule and the last error, for a report on GitHub or the forum.",
+        "fr": "Écrit dans l’onglet Journaux les spots, les mailles du modèle, le planning et la dernière erreur, pour un retour sur GitHub ou le forum.",
+        "de": "Schreibt in den Tab Protokolle die Spots, die Modellzellen, den Zeitplan und den letzten Fehler, für eine Meldung auf GitHub oder im Forum.",
+        "es": "Escribe en la pestaña Registros los spots, las celdas del modelo, la planificación y el último error, para un informe en GitHub o el foro."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "conditions",
+      "icon": "anchor",
+      "label": {
+        "en": "Sea conditions",
+        "fr": "Conditions en mer",
+        "de": "Bedingungen auf See",
+        "es": "Condiciones del mar"
+      },
+      "description": {
+        "en": "A spot now: waves, period, swell, water, wind, sea state and Beaufort force.",
+        "fr": "Un spot maintenant : vagues, période, houle, eau, vent, état de la mer et force Beaufort.",
+        "de": "Ein Spot jetzt: Wellen, Periode, Dünung, Wasser, Wind, Seegang und Windstärke.",
+        "es": "Un spot ahora: olas, periodo, mar de fondo, agua, viento, estado del mar y fuerza Beaufort."
+      },
+      "settings": [
+        {
+          "key": "spot",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          },
+          "description": {
+            "en": "Empty: the first spot.",
+            "fr": "Vide : le premier spot.",
+            "de": "Leer: der erste Spot.",
+            "es": "Vacío: el primer spot."
+          },
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "forecast",
+      "icon": "activity",
+      "label": {
+        "en": "Marine forecast chart",
+        "fr": "Courbe météo marine",
+        "de": "Seewetter-Verlauf",
+        "es": "Gráfico marino"
+      },
+      "description": {
+        "en": "The next 48 or 72 hours: waves, swell and wind sea, or wind and gusts.",
+        "fr": "Les 48 ou 72 prochaines heures : vagues, houle et mer du vent, ou vent et rafales.",
+        "de": "Die nächsten 48 oder 72 Stunden: Wellen, Dünung und Windsee, oder Wind und Böen.",
+        "es": "Las próximas 48 o 72 horas: olas, mar de fondo y mar de viento, o viento y rachas."
+      },
+      "settings": [
+        {
+          "key": "spot",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          },
+          "description": {
+            "en": "Empty: the first spot.",
+            "fr": "Vide : le premier spot.",
+            "de": "Leer: der erste Spot.",
+            "es": "Vacío: el primer spot."
+          },
+          "required": false
+        },
+        {
+          "key": "variable",
+          "type": "select",
+          "required": false,
+          "default": "waves",
+          "label": {
+            "en": "Chart",
+            "fr": "Courbe",
+            "de": "Diagramm",
+            "es": "Gráfico"
+          },
+          "options": [
+            {
+              "value": "waves",
+              "label": {
+                "en": "Waves and swell",
+                "fr": "Vagues et houle",
+                "de": "Wellen und Dünung",
+                "es": "Olas y mar de fondo"
+              }
+            },
+            {
+              "value": "wind",
+              "label": {
+                "en": "Wind and gusts",
+                "fr": "Vent et rafales",
+                "de": "Wind und Böen",
+                "es": "Viento y rachas"
+              }
+            }
+          ]
+        },
+        {
+          "key": "hours",
+          "type": "select",
+          "required": false,
+          "default": "48",
+          "label": {
+            "en": "Duration",
+            "fr": "Durée",
+            "de": "Dauer",
+            "es": "Duración"
+          },
+          "options": [
+            {
+              "value": "48",
+              "label": {
+                "en": "48 hours",
+                "fr": "48 heures",
+                "de": "48 Stunden",
+                "es": "48 horas"
+              }
+            },
+            {
+              "value": "72",
+              "label": {
+                "en": "72 hours",
+                "fr": "72 heures",
+                "de": "72 Stunden",
+                "es": "72 horas"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "daily",
+      "icon": "calendar",
+      "label": {
+        "en": "Sea, next 7 days",
+        "fr": "Mer sur 7 jours",
+        "de": "See, nächste 7 Tage",
+        "es": "Mar, próximos 7 días"
+      },
+      "description": {
+        "en": "Day by day: highest waves, swell and period, strongest wind, sea state.",
+        "fr": "Jour par jour : vagues max, houle et période, vent max, état de la mer.",
+        "de": "Tag für Tag: höchste Wellen, Dünung und Periode, stärkster Wind, Seegang.",
+        "es": "Día a día: olas máximas, mar de fondo y periodo, viento máximo, estado del mar."
+      },
+      "settings": [
+        {
+          "key": "spot",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          },
+          "description": {
+            "en": "Empty: the first spot.",
+            "fr": "Vide : le premier spot.",
+            "de": "Leer: der erste Spot.",
+            "es": "Vacío: el primer spot."
+          },
+          "required": false
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "sea_state_changed",
+      "label": {
+        "en": "Open-Meteo Marine: sea state changed",
+        "fr": "Open-Meteo Marine : état de la mer changé",
+        "de": "Open-Meteo Marine: Seegang geändert",
+        "es": "Open-Meteo Marine: estado del mar cambiado"
+      },
+      "description": {
+        "en": "The Douglas sea state of a spot changes (from the significant wave height). Pick the new states that matter.",
+        "fr": "L’état de la mer (Douglas) d’un spot change (d’après la hauteur significative des vagues). Choisissez les nouveaux états qui comptent.",
+        "de": "Der Seegang (Douglas) eines Spots ändert sich (aus der signifikanten Wellenhöhe). Wählen Sie die neuen Stufen, die zählen.",
+        "es": "El estado del mar (Douglas) de un spot cambia (según la altura significativa de las olas). Elija los nuevos estados que importan."
+      },
+      "fields": [
+        {
+          "key": "spot",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false
+        },
+        {
+          "key": "sea_state",
+          "type": "multi_select",
+          "label": {
+            "en": "New sea state",
+            "fr": "Nouvel état de la mer",
+            "de": "Neuer Seegang",
+            "es": "Nuevo estado del mar"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false,
+          "options": [
+            {
+              "value": "0",
+              "label": {
+                "en": "0 – Calm (glassy)",
+                "fr": "0 – Calme",
+                "de": "0 – Spiegelglatt",
+                "es": "0 – Calma"
+              }
+            },
+            {
+              "value": "1",
+              "label": {
+                "en": "1 – Calm (rippled)",
+                "fr": "1 – Calme (ridée)",
+                "de": "1 – Ruhig",
+                "es": "1 – Rizada"
+              }
+            },
+            {
+              "value": "2",
+              "label": {
+                "en": "2 – Smooth",
+                "fr": "2 – Belle",
+                "de": "2 – Schwach bewegt",
+                "es": "2 – Marejadilla"
+              }
+            },
+            {
+              "value": "3",
+              "label": {
+                "en": "3 – Slight",
+                "fr": "3 – Peu agitée",
+                "de": "3 – Leicht bewegt",
+                "es": "3 – Marejada"
+              }
+            },
+            {
+              "value": "4",
+              "label": {
+                "en": "4 – Moderate",
+                "fr": "4 – Agitée",
+                "de": "4 – Mäßig bewegt",
+                "es": "4 – Fuerte marejada"
+              }
+            },
+            {
+              "value": "5",
+              "label": {
+                "en": "5 – Rough",
+                "fr": "5 – Forte",
+                "de": "5 – Grob",
+                "es": "5 – Gruesa"
+              }
+            },
+            {
+              "value": "6",
+              "label": {
+                "en": "6 – Very rough",
+                "fr": "6 – Très forte",
+                "de": "6 – Sehr grob",
+                "es": "6 – Muy gruesa"
+              }
+            },
+            {
+              "value": "7",
+              "label": {
+                "en": "7 – High",
+                "fr": "7 – Grosse",
+                "de": "7 – Hoch",
+                "es": "7 – Arbolada"
+              }
+            },
+            {
+              "value": "8",
+              "label": {
+                "en": "8 – Very high",
+                "fr": "8 – Très grosse",
+                "de": "8 – Sehr hoch",
+                "es": "8 – Montañosa"
+              }
+            },
+            {
+              "value": "9",
+              "label": {
+                "en": "9 – Phenomenal",
+                "fr": "9 – Énorme",
+                "de": "9 – Extrem schwer",
+                "es": "9 – Enorme"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "spot_name",
+          "type": "string",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          }
+        },
+        {
+          "key": "sea_state",
+          "type": "number",
+          "label": {
+            "en": "Sea state",
+            "fr": "État de la mer",
+            "de": "Seegang",
+            "es": "Estado del mar"
+          },
+          "description": {
+            "en": "Douglas, 0 to 9.",
+            "fr": "Douglas, 0 à 9.",
+            "de": "Douglas, 0 bis 9.",
+            "es": "Douglas, 0 a 9."
+          }
+        },
+        {
+          "key": "sea_state_label",
+          "type": "string",
+          "label": {
+            "en": "Sea state name",
+            "fr": "Nom de l’état de la mer",
+            "de": "Name des Seegangs",
+            "es": "Nombre del estado del mar"
+          }
+        },
+        {
+          "key": "previous_sea_state",
+          "type": "number",
+          "label": {
+            "en": "Previous sea state",
+            "fr": "État de la mer précédent",
+            "de": "Vorheriger Seegang",
+            "es": "Estado del mar anterior"
+          }
+        },
+        {
+          "key": "rising",
+          "type": "boolean",
+          "label": {
+            "en": "Rising",
+            "fr": "En hausse",
+            "de": "Steigend",
+            "es": "En aumento"
+          },
+          "description": {
+            "en": "True when the level went up.",
+            "fr": "Vrai quand le niveau a monté.",
+            "de": "Wahr, wenn die Stufe gestiegen ist.",
+            "es": "Verdadero cuando el nivel ha subido."
+          }
+        },
+        {
+          "key": "wave_height",
+          "type": "number",
+          "label": {
+            "en": "Wave height",
+            "fr": "Hauteur des vagues",
+            "de": "Wellenhöhe",
+            "es": "Altura de las olas"
+          },
+          "description": {
+            "en": "Significant height, m.",
+            "fr": "Hauteur significative, m.",
+            "de": "Signifikante Höhe, m.",
+            "es": "Altura significativa, m."
+          }
+        },
+        {
+          "key": "wave_period",
+          "type": "number",
+          "label": {
+            "en": "Wave period",
+            "fr": "Période des vagues",
+            "de": "Wellenperiode",
+            "es": "Periodo de las olas"
+          },
+          "description": {
+            "en": "Seconds.",
+            "fr": "Secondes.",
+            "de": "Sekunden.",
+            "es": "Segundos."
+          }
+        },
+        {
+          "key": "wave_direction",
+          "type": "number",
+          "label": {
+            "en": "Wave direction",
+            "fr": "Direction des vagues",
+            "de": "Wellenrichtung",
+            "es": "Dirección de las olas"
+          },
+          "description": {
+            "en": "Where the waves come from, degrees.",
+            "fr": "D’où viennent les vagues, degrés.",
+            "de": "Woher die Wellen kommen, Grad.",
+            "es": "De dónde vienen las olas, grados."
+          }
+        },
+        {
+          "key": "swell_height",
+          "type": "number",
+          "label": {
+            "en": "Swell height",
+            "fr": "Hauteur de la houle",
+            "de": "Dünungshöhe",
+            "es": "Altura del mar de fondo"
+          },
+          "description": {
+            "en": "Metres.",
+            "fr": "Mètres.",
+            "de": "Meter.",
+            "es": "Metros."
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready for a message, in the language of the configuration.",
+            "fr": "Une phrase prête pour un message, dans la langue de la configuration.",
+            "de": "Ein Satz für eine Nachricht, in der Sprache der Konfiguration.",
+            "es": "Una frase lista para un mensaje, en el idioma de la configuración."
+          }
+        }
+      ]
+    },
+    {
+      "key": "beaufort_changed",
+      "label": {
+        "en": "Open-Meteo Marine: Beaufort force changed",
+        "fr": "Open-Meteo Marine : force Beaufort changée",
+        "de": "Open-Meteo Marine: Windstärke geändert",
+        "es": "Open-Meteo Marine: fuerza Beaufort cambiada"
+      },
+      "description": {
+        "en": "The Beaufort force of the mean wind of a spot changes. Pick the new forces that matter.",
+        "fr": "La force Beaufort du vent moyen d’un spot change. Choisissez les nouvelles forces qui comptent.",
+        "de": "Die Beaufort-Stärke des Mittelwinds eines Spots ändert sich. Wählen Sie die neuen Stärken, die zählen.",
+        "es": "La fuerza Beaufort del viento medio de un spot cambia. Elija las nuevas fuerzas que importan."
+      },
+      "fields": [
+        {
+          "key": "spot",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false
+        },
+        {
+          "key": "beaufort",
+          "type": "multi_select",
+          "label": {
+            "en": "New force",
+            "fr": "Nouvelle force",
+            "de": "Neue Stärke",
+            "es": "Nueva fuerza"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false,
+          "options": [
+            {
+              "value": "0",
+              "label": {
+                "en": "0 – Calm",
+                "fr": "0 – Calme",
+                "de": "0 – Windstille",
+                "es": "0 – Calma"
+              }
+            },
+            {
+              "value": "1",
+              "label": {
+                "en": "1 – Light air",
+                "fr": "1 – Très légère brise",
+                "de": "1 – Leiser Zug",
+                "es": "1 – Ventolina"
+              }
+            },
+            {
+              "value": "2",
+              "label": {
+                "en": "2 – Light breeze",
+                "fr": "2 – Légère brise",
+                "de": "2 – Leichte Brise",
+                "es": "2 – Flojito"
+              }
+            },
+            {
+              "value": "3",
+              "label": {
+                "en": "3 – Gentle breeze",
+                "fr": "3 – Petite brise",
+                "de": "3 – Schwache Brise",
+                "es": "3 – Flojo"
+              }
+            },
+            {
+              "value": "4",
+              "label": {
+                "en": "4 – Moderate breeze",
+                "fr": "4 – Jolie brise",
+                "de": "4 – Mäßige Brise",
+                "es": "4 – Bonancible"
+              }
+            },
+            {
+              "value": "5",
+              "label": {
+                "en": "5 – Fresh breeze",
+                "fr": "5 – Bonne brise",
+                "de": "5 – Frische Brise",
+                "es": "5 – Fresquito"
+              }
+            },
+            {
+              "value": "6",
+              "label": {
+                "en": "6 – Strong breeze",
+                "fr": "6 – Vent frais",
+                "de": "6 – Starker Wind",
+                "es": "6 – Fresco"
+              }
+            },
+            {
+              "value": "7",
+              "label": {
+                "en": "7 – Near gale",
+                "fr": "7 – Grand frais",
+                "de": "7 – Steifer Wind",
+                "es": "7 – Frescachón"
+              }
+            },
+            {
+              "value": "8",
+              "label": {
+                "en": "8 – Gale",
+                "fr": "8 – Coup de vent",
+                "de": "8 – Stürmischer Wind",
+                "es": "8 – Temporal"
+              }
+            },
+            {
+              "value": "9",
+              "label": {
+                "en": "9 – Strong gale",
+                "fr": "9 – Fort coup de vent",
+                "de": "9 – Sturm",
+                "es": "9 – Temporal fuerte"
+              }
+            },
+            {
+              "value": "10",
+              "label": {
+                "en": "10 – Storm",
+                "fr": "10 – Tempête",
+                "de": "10 – Schwerer Sturm",
+                "es": "10 – Temporal duro"
+              }
+            },
+            {
+              "value": "11",
+              "label": {
+                "en": "11 – Violent storm",
+                "fr": "11 – Violente tempête",
+                "de": "11 – Orkanartiger Sturm",
+                "es": "11 – Temporal muy duro"
+              }
+            },
+            {
+              "value": "12",
+              "label": {
+                "en": "12 – Hurricane",
+                "fr": "12 – Ouragan",
+                "de": "12 – Orkan",
+                "es": "12 – Temporal huracanado"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "spot_name",
+          "type": "string",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          }
+        },
+        {
+          "key": "beaufort",
+          "type": "number",
+          "label": {
+            "en": "Beaufort force",
+            "fr": "Force Beaufort",
+            "de": "Windstärke",
+            "es": "Fuerza Beaufort"
+          },
+          "description": {
+            "en": "0 to 12.",
+            "fr": "0 à 12.",
+            "de": "0 bis 12.",
+            "es": "0 a 12."
+          }
+        },
+        {
+          "key": "beaufort_label",
+          "type": "string",
+          "label": {
+            "en": "Force name",
+            "fr": "Nom de la force",
+            "de": "Name der Stärke",
+            "es": "Nombre de la fuerza"
+          }
+        },
+        {
+          "key": "previous_beaufort",
+          "type": "number",
+          "label": {
+            "en": "Previous force",
+            "fr": "Force précédente",
+            "de": "Vorherige Stärke",
+            "es": "Fuerza anterior"
+          }
+        },
+        {
+          "key": "rising",
+          "type": "boolean",
+          "label": {
+            "en": "Rising",
+            "fr": "En hausse",
+            "de": "Steigend",
+            "es": "En aumento"
+          },
+          "description": {
+            "en": "True when the level went up.",
+            "fr": "Vrai quand le niveau a monté.",
+            "de": "Wahr, wenn die Stufe gestiegen ist.",
+            "es": "Verdadero cuando el nivel ha subido."
+          }
+        },
+        {
+          "key": "wind_speed",
+          "type": "number",
+          "label": {
+            "en": "Mean wind",
+            "fr": "Vent moyen",
+            "de": "Mittelwind",
+            "es": "Viento medio"
+          },
+          "description": {
+            "en": "Mean wind at 10 m, km/h.",
+            "fr": "Vent moyen à 10 m, km/h.",
+            "de": "Mittelwind in 10 m, km/h.",
+            "es": "Viento medio a 10 m, km/h."
+          }
+        },
+        {
+          "key": "wind_speed_kn",
+          "type": "number",
+          "label": {
+            "en": "Mean wind (kn)",
+            "fr": "Vent moyen (nd)",
+            "de": "Mittelwind (kn)",
+            "es": "Viento medio (kn)"
+          },
+          "description": {
+            "en": "Knots, rounded.",
+            "fr": "Nœuds, arrondi.",
+            "de": "Knoten, gerundet.",
+            "es": "Nudos, redondeado."
+          }
+        },
+        {
+          "key": "wind_gusts",
+          "type": "number",
+          "label": {
+            "en": "Gusts",
+            "fr": "Rafales",
+            "de": "Böen",
+            "es": "Rachas"
+          },
+          "description": {
+            "en": "Gusts, km/h.",
+            "fr": "Rafales, km/h.",
+            "de": "Böen, km/h.",
+            "es": "Rachas, km/h."
+          }
+        },
+        {
+          "key": "wind_direction",
+          "type": "number",
+          "label": {
+            "en": "Wind direction",
+            "fr": "Direction du vent",
+            "de": "Windrichtung",
+            "es": "Dirección del viento"
+          },
+          "description": {
+            "en": "Where the wind comes from, degrees.",
+            "fr": "D’où vient le vent, degrés.",
+            "de": "Woher der Wind kommt, Grad.",
+            "es": "De dónde viene el viento, grados."
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready for a message, in the language of the configuration.",
+            "fr": "Une phrase prête pour un message, dans la langue de la configuration.",
+            "de": "Ein Satz für eine Nachricht, in der Sprache der Konfiguration.",
+            "es": "Una frase lista para un mensaje, en el idioma de la configuración."
+          }
+        }
+      ]
+    },
+    {
+      "key": "strong_wind_forecast",
+      "label": {
+        "en": "Open-Meteo Marine: strong wind forecast",
+        "fr": "Open-Meteo Marine : vent fort prévu",
+        "de": "Open-Meteo Marine: Starkwind erwartet",
+        "es": "Open-Meteo Marine: viento fuerte previsto"
+      },
+      "description": {
+        "en": "The next 24 hours of a spot reach force 7 (near gale) or more, the threshold of coastal gale warnings, or a higher force than already announced.",
+        "fr": "Les 24 prochaines heures d’un spot atteignent la force 7 (grand frais) ou plus, seuil des avis de grand frais, ou une force plus haute que celle déjà annoncée.",
+        "de": "Die nächsten 24 Stunden eines Spots erreichen Stärke 7 (steifer Wind) oder mehr, die Schwelle der Starkwindwarnungen, oder eine höhere Stärke als bereits gemeldet.",
+        "es": "Las próximas 24 horas de un spot alcanzan fuerza 7 (frescachón) o más, umbral de los avisos costeros, o una fuerza mayor que la ya anunciada."
+      },
+      "fields": [
+        {
+          "key": "spot",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false
+        },
+        {
+          "key": "beaufort",
+          "type": "multi_select",
+          "label": {
+            "en": "Highest force forecast",
+            "fr": "Force maximale prévue",
+            "de": "Höchste erwartete Stärke",
+            "es": "Fuerza máxima prevista"
+          },
+          "description": {
+            "en": "Leave empty for any.",
+            "fr": "Laissez vide pour tous.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjelo vacío para todos."
+          },
+          "required": false,
+          "options": [
+            {
+              "value": "7",
+              "label": {
+                "en": "7 – Near gale",
+                "fr": "7 – Grand frais",
+                "de": "7 – Steifer Wind",
+                "es": "7 – Frescachón"
+              }
+            },
+            {
+              "value": "8",
+              "label": {
+                "en": "8 – Gale",
+                "fr": "8 – Coup de vent",
+                "de": "8 – Stürmischer Wind",
+                "es": "8 – Temporal"
+              }
+            },
+            {
+              "value": "9",
+              "label": {
+                "en": "9 – Strong gale",
+                "fr": "9 – Fort coup de vent",
+                "de": "9 – Sturm",
+                "es": "9 – Temporal fuerte"
+              }
+            },
+            {
+              "value": "10",
+              "label": {
+                "en": "10 – Storm",
+                "fr": "10 – Tempête",
+                "de": "10 – Schwerer Sturm",
+                "es": "10 – Temporal duro"
+              }
+            },
+            {
+              "value": "11",
+              "label": {
+                "en": "11 – Violent storm",
+                "fr": "11 – Violente tempête",
+                "de": "11 – Orkanartiger Sturm",
+                "es": "11 – Temporal muy duro"
+              }
+            },
+            {
+              "value": "12",
+              "label": {
+                "en": "12 – Hurricane",
+                "fr": "12 – Ouragan",
+                "de": "12 – Orkan",
+                "es": "12 – Temporal huracanado"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "spot_name",
+          "type": "string",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          }
+        },
+        {
+          "key": "beaufort",
+          "type": "number",
+          "label": {
+            "en": "Highest force",
+            "fr": "Force maximale",
+            "de": "Höchste Stärke",
+            "es": "Fuerza máxima"
+          },
+          "description": {
+            "en": "7 to 12.",
+            "fr": "7 à 12.",
+            "de": "7 bis 12.",
+            "es": "7 a 12."
+          }
+        },
+        {
+          "key": "beaufort_label",
+          "type": "string",
+          "label": {
+            "en": "Force name",
+            "fr": "Nom de la force",
+            "de": "Name der Stärke",
+            "es": "Nombre de la fuerza"
+          }
+        },
+        {
+          "key": "wind_speed",
+          "type": "number",
+          "label": {
+            "en": "Strongest mean wind",
+            "fr": "Vent moyen maximal",
+            "de": "Stärkster Mittelwind",
+            "es": "Viento medio máximo"
+          },
+          "description": {
+            "en": "At the peak, km/h.",
+            "fr": "Au plus fort, km/h.",
+            "de": "Am Höhepunkt, km/h.",
+            "es": "En el máximo, km/h."
+          }
+        },
+        {
+          "key": "wind_speed_kn",
+          "type": "number",
+          "label": {
+            "en": "Strongest mean wind (kn)",
+            "fr": "Vent moyen maximal (nd)",
+            "de": "Stärkster Mittelwind (kn)",
+            "es": "Viento medio máximo (kn)"
+          },
+          "description": {
+            "en": "Knots, rounded.",
+            "fr": "Nœuds, arrondi.",
+            "de": "Knoten, gerundet.",
+            "es": "Nudos, redondeado."
+          }
+        },
+        {
+          "key": "wind_gusts",
+          "type": "number",
+          "label": {
+            "en": "Strongest gusts",
+            "fr": "Rafales maximales",
+            "de": "Stärkste Böen",
+            "es": "Rachas máximas"
+          },
+          "description": {
+            "en": "In the next 24 hours, km/h.",
+            "fr": "Sur les 24 prochaines heures, km/h.",
+            "de": "In den nächsten 24 Stunden, km/h.",
+            "es": "En las próximas 24 horas, km/h."
+          }
+        },
+        {
+          "key": "starts_at",
+          "type": "string",
+          "label": {
+            "en": "From",
+            "fr": "À partir de",
+            "de": "Ab",
+            "es": "Desde"
+          },
+          "description": {
+            "en": "ISO 8601, UTC: the first hour at that force.",
+            "fr": "ISO 8601, UTC : première heure à cette force.",
+            "de": "ISO 8601, UTC: erste Stunde mit dieser Stärke.",
+            "es": "ISO 8601, UTC: primera hora con esa fuerza."
+          }
+        },
+        {
+          "key": "hours_until",
+          "type": "number",
+          "label": {
+            "en": "Hours until then",
+            "fr": "Heures d’ici là",
+            "de": "Stunden bis dahin",
+            "es": "Horas hasta entonces"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready for a message, in the language of the configuration.",
+            "fr": "Une phrase prête pour un message, dans la langue de la configuration.",
+            "de": "Ein Satz für eine Nachricht, in der Sprache der Konfiguration.",
+            "es": "Una frase lista para un mensaje, en el idioma de la configuración."
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "get_marine_forecast",
+      "timeout_seconds": 10,
+      "label": {
+        "en": "Open-Meteo Marine: read the marine forecast",
+        "fr": "Open-Meteo Marine : lire la météo marine",
+        "de": "Open-Meteo Marine: Seewetter lesen",
+        "es": "Open-Meteo Marine: leer el tiempo marino"
+      },
+      "description": {
+        "en": "The sea and the wind of a spot now or in a few hours, for the next actions (a message, a condition). No request to Open-Meteo: the last forecast read.",
+        "fr": "La mer et le vent d’un spot maintenant ou dans quelques heures, pour les actions suivantes (un message, une condition). Aucune requête à Open-Meteo : la dernière prévision lue.",
+        "de": "See und Wind eines Spots jetzt oder in einigen Stunden, für die nächsten Aktionen (eine Nachricht, eine Bedingung). Keine Anfrage an Open-Meteo: die zuletzt gelesene Vorhersage.",
+        "es": "El mar y el viento de un spot ahora o dentro de unas horas, para las acciones siguientes (un mensaje, una condición). Sin solicitud a Open-Meteo: la última previsión leída."
+      },
+      "fields": [
+        {
+          "key": "spot",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          },
+          "description": {
+            "en": "Empty: the first spot.",
+            "fr": "Vide : le premier spot.",
+            "de": "Leer: der erste Spot.",
+            "es": "Vacío: el primer spot."
+          },
+          "required": false
+        },
+        {
+          "key": "hours",
+          "type": "number",
+          "required": false,
+          "default": 0,
+          "min": 0,
+          "max": 168,
+          "label": {
+            "en": "In how many hours",
+            "fr": "Dans combien d’heures",
+            "de": "In wie vielen Stunden",
+            "es": "Dentro de cuántas horas"
+          },
+          "description": {
+            "en": "0: now. Up to 168 (7 days).",
+            "fr": "0 : maintenant. Jusqu’à 168 (7 jours).",
+            "de": "0: jetzt. Bis 168 (7 Tage).",
+            "es": "0: ahora. Hasta 168 (7 días)."
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "spot_name",
+          "type": "string",
+          "label": {
+            "en": "Spot",
+            "fr": "Spot",
+            "de": "Spot",
+            "es": "Spot"
+          }
+        },
+        {
+          "key": "forecast_time",
+          "type": "string",
+          "label": {
+            "en": "Time of the forecast",
+            "fr": "Heure de la prévision",
+            "de": "Zeit der Vorhersage",
+            "es": "Hora de la previsión"
+          },
+          "description": {
+            "en": "ISO 8601, UTC.",
+            "fr": "ISO 8601, UTC.",
+            "de": "ISO 8601, UTC.",
+            "es": "ISO 8601, UTC."
+          }
+        },
+        {
+          "key": "wave_height",
+          "type": "number",
+          "label": {
+            "en": "Wave height",
+            "fr": "Hauteur des vagues",
+            "de": "Wellenhöhe",
+            "es": "Altura de las olas"
+          },
+          "description": {
+            "en": "Significant height, m.",
+            "fr": "Hauteur significative, m.",
+            "de": "Signifikante Höhe, m.",
+            "es": "Altura significativa, m."
+          }
+        },
+        {
+          "key": "wave_period",
+          "type": "number",
+          "label": {
+            "en": "Wave period",
+            "fr": "Période des vagues",
+            "de": "Wellenperiode",
+            "es": "Periodo de las olas"
+          },
+          "description": {
+            "en": "Seconds.",
+            "fr": "Secondes.",
+            "de": "Sekunden.",
+            "es": "Segundos."
+          }
+        },
+        {
+          "key": "wave_direction",
+          "type": "number",
+          "label": {
+            "en": "Wave direction",
+            "fr": "Direction des vagues",
+            "de": "Wellenrichtung",
+            "es": "Dirección de las olas"
+          },
+          "description": {
+            "en": "Where the waves come from, degrees.",
+            "fr": "D’où viennent les vagues, degrés.",
+            "de": "Woher die Wellen kommen, Grad.",
+            "es": "De dónde vienen las olas, grados."
+          }
+        },
+        {
+          "key": "swell_height",
+          "type": "number",
+          "label": {
+            "en": "Swell height",
+            "fr": "Hauteur de la houle",
+            "de": "Dünungshöhe",
+            "es": "Altura del mar de fondo"
+          },
+          "description": {
+            "en": "Metres.",
+            "fr": "Mètres.",
+            "de": "Meter.",
+            "es": "Metros."
+          }
+        },
+        {
+          "key": "swell_period",
+          "type": "number",
+          "label": {
+            "en": "Swell period",
+            "fr": "Période de la houle",
+            "de": "Dünungsperiode",
+            "es": "Periodo del mar de fondo"
+          },
+          "description": {
+            "en": "Seconds.",
+            "fr": "Secondes.",
+            "de": "Sekunden.",
+            "es": "Segundos."
+          }
+        },
+        {
+          "key": "swell_direction",
+          "type": "number",
+          "label": {
+            "en": "Swell direction",
+            "fr": "Direction de la houle",
+            "de": "Dünungsrichtung",
+            "es": "Dirección del mar de fondo"
+          },
+          "description": {
+            "en": "Degrees.",
+            "fr": "Degrés.",
+            "de": "Grad.",
+            "es": "Grados."
+          }
+        },
+        {
+          "key": "wind_wave_height",
+          "type": "number",
+          "label": {
+            "en": "Wind sea height",
+            "fr": "Hauteur de la mer du vent",
+            "de": "Windseehöhe",
+            "es": "Altura del mar de viento"
+          },
+          "description": {
+            "en": "Metres.",
+            "fr": "Mètres.",
+            "de": "Meter.",
+            "es": "Metros."
+          }
+        },
+        {
+          "key": "sea_temperature",
+          "type": "number",
+          "label": {
+            "en": "Water temperature",
+            "fr": "Température de l’eau",
+            "de": "Wassertemperatur",
+            "es": "Temperatura del agua"
+          },
+          "description": {
+            "en": "°C.",
+            "fr": "°C.",
+            "de": "°C.",
+            "es": "°C."
+          }
+        },
+        {
+          "key": "wind_speed",
+          "type": "number",
+          "label": {
+            "en": "Mean wind",
+            "fr": "Vent moyen",
+            "de": "Mittelwind",
+            "es": "Viento medio"
+          },
+          "description": {
+            "en": "Mean wind at 10 m, km/h.",
+            "fr": "Vent moyen à 10 m, km/h.",
+            "de": "Mittelwind in 10 m, km/h.",
+            "es": "Viento medio a 10 m, km/h."
+          }
+        },
+        {
+          "key": "wind_speed_kn",
+          "type": "number",
+          "label": {
+            "en": "Mean wind (kn)",
+            "fr": "Vent moyen (nd)",
+            "de": "Mittelwind (kn)",
+            "es": "Viento medio (kn)"
+          },
+          "description": {
+            "en": "Knots, rounded.",
+            "fr": "Nœuds, arrondi.",
+            "de": "Knoten, gerundet.",
+            "es": "Nudos, redondeado."
+          }
+        },
+        {
+          "key": "wind_gusts",
+          "type": "number",
+          "label": {
+            "en": "Gusts",
+            "fr": "Rafales",
+            "de": "Böen",
+            "es": "Rachas"
+          },
+          "description": {
+            "en": "Gusts, km/h.",
+            "fr": "Rafales, km/h.",
+            "de": "Böen, km/h.",
+            "es": "Rachas, km/h."
+          }
+        },
+        {
+          "key": "wind_direction",
+          "type": "number",
+          "label": {
+            "en": "Wind direction",
+            "fr": "Direction du vent",
+            "de": "Windrichtung",
+            "es": "Dirección del viento"
+          },
+          "description": {
+            "en": "Where the wind comes from, degrees.",
+            "fr": "D’où vient le vent, degrés.",
+            "de": "Woher der Wind kommt, Grad.",
+            "es": "De dónde viene el viento, grados."
+          }
+        },
+        {
+          "key": "beaufort",
+          "type": "number",
+          "label": {
+            "en": "Beaufort force",
+            "fr": "Force Beaufort",
+            "de": "Windstärke",
+            "es": "Fuerza Beaufort"
+          },
+          "description": {
+            "en": "0 to 12.",
+            "fr": "0 à 12.",
+            "de": "0 bis 12.",
+            "es": "0 a 12."
+          }
+        },
+        {
+          "key": "beaufort_label",
+          "type": "string",
+          "label": {
+            "en": "Force name",
+            "fr": "Nom de la force",
+            "de": "Name der Stärke",
+            "es": "Nombre de la fuerza"
+          }
+        },
+        {
+          "key": "sea_state",
+          "type": "number",
+          "label": {
+            "en": "Sea state",
+            "fr": "État de la mer",
+            "de": "Seegang",
+            "es": "Estado del mar"
+          },
+          "description": {
+            "en": "Douglas, 0 to 9.",
+            "fr": "Douglas, 0 à 9.",
+            "de": "Douglas, 0 bis 9.",
+            "es": "Douglas, 0 a 9."
+          }
+        },
+        {
+          "key": "sea_state_label",
+          "type": "string",
+          "label": {
+            "en": "Sea state name",
+            "fr": "Nom de l’état de la mer",
+            "de": "Name des Seegangs",
+            "es": "Nombre del estado del mar"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready for a message, in the language of the configuration.",
+            "fr": "Une phrase prête pour un message, dans la langue de la configuration.",
+            "de": "Ein Satz für eine Nachricht, in der Sprache der Konfiguration.",
+            "es": "Una frase lista para un mensaje, en el idioma de la configuración."
+          }
+        }
+      ]
+    }
+  ]
+}

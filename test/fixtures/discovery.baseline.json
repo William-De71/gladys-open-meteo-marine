@@ -1,0 +1,805 @@
+{
+  "devices": {
+    "quiberon": {
+      "external_id": "ext:test-integration:spot:n4745_w320",
+      "should_poll": false,
+      "params": ["SPOT", "LATITUDE", "LONGITUDE", "COORDINATES"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:wave_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:wave_period",
+          "category": "duration",
+          "type": "decimal",
+          "unit": "seconds",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:wave_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:swell_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:swell_period",
+          "category": "duration",
+          "type": "decimal",
+          "unit": "seconds",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:swell_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:wind_wave_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:sea_temperature",
+          "category": "temperature-sensor",
+          "type": "probe",
+          "unit": "celsius",
+          "min": -5,
+          "max": 40,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:current_speed",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:sea_level",
+          "category": "level-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": -10,
+          "max": 10,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:wind_speed",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 400,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:wind_gusts",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 400,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:wind_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:beaufort",
+          "category": "speed-sensor",
+          "type": "integer",
+          "min": 0,
+          "max": 12,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4745_w320:sea_state",
+          "category": "level-sensor",
+          "type": "decimal",
+          "min": 0,
+          "max": 9,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "marseille": {
+      "external_id": "ext:test-integration:spot:n4320_e530",
+      "should_poll": false,
+      "params": ["SPOT", "LATITUDE", "LONGITUDE", "COORDINATES"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:wave_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:wave_period",
+          "category": "duration",
+          "type": "decimal",
+          "unit": "seconds",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:wave_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:swell_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:swell_period",
+          "category": "duration",
+          "type": "decimal",
+          "unit": "seconds",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:swell_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:wind_wave_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:sea_temperature",
+          "category": "temperature-sensor",
+          "type": "probe",
+          "unit": "celsius",
+          "min": -5,
+          "max": 40,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:current_speed",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:sea_level",
+          "category": "level-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": -10,
+          "max": 10,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:wind_speed",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 400,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:wind_gusts",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 400,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:wind_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:beaufort",
+          "category": "speed-sensor",
+          "type": "integer",
+          "min": 0,
+          "max": 12,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4320_e530:sea_state",
+          "category": "level-sensor",
+          "type": "decimal",
+          "min": 0,
+          "max": 9,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "lyon": {
+      "external_id": "ext:test-integration:spot:n4576_e484",
+      "should_poll": false,
+      "params": ["SPOT", "LATITUDE", "LONGITUDE", "COORDINATES"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:wave_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:wave_period",
+          "category": "duration",
+          "type": "decimal",
+          "unit": "seconds",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:wave_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:swell_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:swell_period",
+          "category": "duration",
+          "type": "decimal",
+          "unit": "seconds",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:swell_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:wind_wave_height",
+          "category": "distance-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:sea_temperature",
+          "category": "temperature-sensor",
+          "type": "probe",
+          "unit": "celsius",
+          "min": -5,
+          "max": 40,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:current_speed",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 30,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:sea_level",
+          "category": "level-sensor",
+          "type": "decimal",
+          "unit": "m",
+          "min": -10,
+          "max": 10,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:wind_speed",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 400,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:wind_gusts",
+          "category": "speed-sensor",
+          "type": "decimal",
+          "unit": "kilometer-per-hour",
+          "min": 0,
+          "max": 400,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:wind_direction",
+          "category": "angle-sensor",
+          "type": "integer",
+          "unit": "degree",
+          "min": 0,
+          "max": 360,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:beaufort",
+          "category": "speed-sensor",
+          "type": "integer",
+          "min": 0,
+          "max": 12,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:spot:n4576_e484:sea_state",
+          "category": "level-sensor",
+          "type": "decimal",
+          "min": 0,
+          "max": 9,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "actions": ["refresh", "diagnostic"],
+    "config_schema": [
+      {
+        "key": "intro",
+        "type": "section"
+      },
+      {
+        "key": "spots",
+        "type": "section"
+      },
+      {
+        "key": "spot_1_name",
+        "type": "string"
+      },
+      {
+        "key": "spot_1_coordinates",
+        "type": "string"
+      },
+      {
+        "key": "spot_2_name",
+        "type": "string"
+      },
+      {
+        "key": "spot_2_coordinates",
+        "type": "string"
+      },
+      {
+        "key": "spot_3_name",
+        "type": "string"
+      },
+      {
+        "key": "spot_3_coordinates",
+        "type": "string"
+      },
+      {
+        "key": "spot_4_name",
+        "type": "string"
+      },
+      {
+        "key": "spot_4_coordinates",
+        "type": "string"
+      },
+      {
+        "key": "spot_5_name",
+        "type": "string"
+      },
+      {
+        "key": "spot_5_coordinates",
+        "type": "string"
+      },
+      {
+        "key": "options",
+        "type": "section"
+      },
+      {
+        "key": "interval",
+        "type": "select"
+      },
+      {
+        "key": "wind_unit",
+        "type": "select"
+      },
+      {
+        "key": "language",
+        "type": "select"
+      }
+    ],
+    "scene_triggers": [
+      {
+        "key": "sea_state_changed",
+        "fields": [
+          {
+            "key": "spot",
+            "options": []
+          },
+          {
+            "key": "sea_state",
+            "options": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "spot_name",
+            "type": "string"
+          },
+          {
+            "key": "sea_state",
+            "type": "number"
+          },
+          {
+            "key": "sea_state_label",
+            "type": "string"
+          },
+          {
+            "key": "previous_sea_state",
+            "type": "number"
+          },
+          {
+            "key": "rising",
+            "type": "boolean"
+          },
+          {
+            "key": "wave_height",
+            "type": "number"
+          },
+          {
+            "key": "wave_period",
+            "type": "number"
+          },
+          {
+            "key": "wave_direction",
+            "type": "number"
+          },
+          {
+            "key": "swell_height",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "beaufort_changed",
+        "fields": [
+          {
+            "key": "spot",
+            "options": []
+          },
+          {
+            "key": "beaufort",
+            "options": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "spot_name",
+            "type": "string"
+          },
+          {
+            "key": "beaufort",
+            "type": "number"
+          },
+          {
+            "key": "beaufort_label",
+            "type": "string"
+          },
+          {
+            "key": "previous_beaufort",
+            "type": "number"
+          },
+          {
+            "key": "rising",
+            "type": "boolean"
+          },
+          {
+            "key": "wind_speed",
+            "type": "number"
+          },
+          {
+            "key": "wind_speed_kn",
+            "type": "number"
+          },
+          {
+            "key": "wind_gusts",
+            "type": "number"
+          },
+          {
+            "key": "wind_direction",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "strong_wind_forecast",
+        "fields": [
+          {
+            "key": "spot",
+            "options": []
+          },
+          {
+            "key": "beaufort",
+            "options": ["7", "8", "9", "10", "11", "12"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "spot_name",
+            "type": "string"
+          },
+          {
+            "key": "beaufort",
+            "type": "number"
+          },
+          {
+            "key": "beaufort_label",
+            "type": "string"
+          },
+          {
+            "key": "wind_speed",
+            "type": "number"
+          },
+          {
+            "key": "wind_speed_kn",
+            "type": "number"
+          },
+          {
+            "key": "wind_gusts",
+            "type": "number"
+          },
+          {
+            "key": "starts_at",
+            "type": "string"
+          },
+          {
+            "key": "hours_until",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "scene_actions": [
+      {
+        "key": "get_marine_forecast",
+        "fields": ["spot", "hours"],
+        "outputs": [
+          {
+            "key": "spot_name",
+            "type": "string"
+          },
+          {
+            "key": "forecast_time",
+            "type": "string"
+          },
+          {
+            "key": "wave_height",
+            "type": "number"
+          },
+          {
+            "key": "wave_period",
+            "type": "number"
+          },
+          {
+            "key": "wave_direction",
+            "type": "number"
+          },
+          {
+            "key": "swell_height",
+            "type": "number"
+          },
+          {
+            "key": "swell_period",
+            "type": "number"
+          },
+          {
+            "key": "swell_direction",
+            "type": "number"
+          },
+          {
+            "key": "wind_wave_height",
+            "type": "number"
+          },
+          {
+            "key": "sea_temperature",
+            "type": "number"
+          },
+          {
+            "key": "wind_speed",
+            "type": "number"
+          },
+          {
+            "key": "wind_speed_kn",
+            "type": "number"
+          },
+          {
+            "key": "wind_gusts",
+            "type": "number"
+          },
+          {
+            "key": "wind_direction",
+            "type": "number"
+          },
+          {
+            "key": "beaufort",
+            "type": "number"
+          },
+          {
+            "key": "beaufort_label",
+            "type": "string"
+          },
+          {
+            "key": "sea_state",
+            "type": "number"
+          },
+          {
+            "key": "sea_state_label",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "widgets": [
+      {
+        "key": "conditions",
+        "settings": ["spot"],
+        "options": {}
+      },
+      {
+        "key": "forecast",
+        "settings": ["spot", "variable", "hours"],
+        "options": {
+          "variable": ["waves", "wind"],
+          "hours": ["48", "72"]
+        }
+      },
+      {
+        "key": "daily",
+        "settings": ["spot"],
+        "options": {}
+      }
+    ]
+  }
+}
